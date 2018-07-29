@@ -1,0 +1,25 @@
+{{extend 'layout.html'}}
+{{=form}}
+{{block header}}
+<center style="background-color: #333; color:white; padding:30px">
+  <h1>{{=request.application}}
+</center>
+{{end}}
+
+
+    <h1>
+        PharmEasy
+    </h1>
+
+<center style="padding:50px">
+ 
+  <a class="btn btn-secondary" href="{{=URL('default','doctor')}}">{{=T("Doctor")}}</a>
+  <a class="btn btn-secondary" href="{{=URL('default','patient')}}">{{=T('Patient')}}</a>
+  <a class="btn btn-secondary" href="{{=URL('default','pharmacist')}}">{{=T('Pharmasist')}}</a>
+   <a class="btn btn-secondary" href="https://pharmeasy.in/">PharmEasy</a>
+ 
+{{elif 'content' in globals():}}
+{{=content}}
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}

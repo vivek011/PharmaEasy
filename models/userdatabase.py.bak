@@ -1,0 +1,38 @@
+# -*- coding: utf-8 -*-
+db.define_table('Patient',
+                Field('Patient_emailid'),
+                Field('name'),
+                Field('Contact'),
+                Field('MedicalHistory'),
+                Field('Prescription','upload')
+                )
+db.define_table('Pharmacist',
+                Field('Pharma_emailid'),
+                Field('name'),
+                Field('contact'),
+                Field('Address')
+                )
+db.define_table('Doctor',
+          Field('Doctoremail_id'),
+          Field('name'),
+          Field('contact'),
+          Field('Address'),
+          Field('specialisation')
+          )
+db.define_table('Doctoraccess',
+                Field('Doctor_emailid',readable=False,writable=False),
+                Field('Patient_emailid',readable=False,writable=False),
+                Field('Doctor_name',readable=True,writable=False),
+                Field('specialisation',readable=True,writable=False),
+                Field('Patient_name',readable=True,writable=False),
+                Field('Doctor_Request','boolean'),
+                Field('Patient_Permit','boolean')
+                )
+db.define_table('Pharmacistaccess',
+                Field('Pharma_emailid',readable=False,writable=False),
+                Field('Patient_emailid',readable=False,writable=False),
+                Field('Pharmacist_name',readable=True,writable=False),
+                Field('Patient_name',readable=True,writable=False),
+                Field('Pharma_Request','boolean'),
+                Field('Patient_Permit','boolean')
+                )

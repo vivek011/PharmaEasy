@@ -1,0 +1,6 @@
+<!--{{extend 'layout.html'}}-->
+<h1>This is the doctor.html template</h1>
+<h2>
+    hello
+</h2>
+{{=BEAUTIFY(response._vars)}}

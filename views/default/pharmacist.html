@@ -1,0 +1,66 @@
+{{extend 'layout.html'}}
+<!--{{block header}}
+<center style="background-color: #333; color:white; padding:30px">
+  <h1>Parmacist
+</center>
+{{end}}-->
+<center>
+<div class="w3-content w3-display-container">
+
+<div class="w3-display-container mySlides">
+  <img src="{{=URL(r=request,c='static',f='images/p1.jpg')}}" width="460" height="345">
+  <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black">
+    French Alps
+  </div>
+</div>
+
+<div class="w3-display-container mySlides">
+  <img src="{{=URL(r=request,c='static',f='images/p2.jpg')}}" width="460" height="345">
+  <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+    Northern Lights
+  </div>
+</div>
+    <div class="w3-display-container mySlides">
+  <img src="{{=URL(r=request,c='static',f='images/p3.jpg')}}" width="460" height="345">
+  <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+    Northern Lights
+  </div>
+</div>
+    <div class="w3-display-container mySlides">
+  <img src="{{=URL(r=request,c='static',f='images/p4.jpg')}}" width="460" height="345">
+  <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
+    Northern Lights
+  </div>
+</div>
+    <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+<button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+
+</div>
+    </center>
+    <script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+<center style="padding:50px" align="bottom">
+  <a class="btn btn-secondary" href="{{=URL('default','pharma_unpermitpatient')}}">{{=T('Patient List')}}</a>
+  <a class="btn btn-secondary" href="{{=URL('default','pharma_permitpatient')}}">{{=T('Patient Notification')}}</a>
+    </center>
+
+
+{{=BEAUTIFY(response._vars)}}
+{{pass}}

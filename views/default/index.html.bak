@@ -1,0 +1,43 @@
+{{extend 'layout.html'}}
+
+{{block header}}
+<center style="background-color: #333; color:white; padding:30px">
+  <h1>{{=request.application}}
+</center>
+{{end}}
+
+<!--{{if 'message' in globals():}}
+    <h2>{{=message}}</h2>-->
+    <h1>
+        PharmEasy
+    </h1>
+<p class="lead">{{=T('About PharmEasy')}}</p>
+<ol>
+  <li>{{=T('PharmEasy is - Pharmacy made Easy. We are one of the largest pharmacy aggregators in India. We help patients connect with local pharmacy stores and diagnostic centres in order to fulfil their extensive medical needs. We believe that everyone should have access to good health. Thus, through our services we ensure you get access to the best and most genuine health products, with the highest savings in the shortest time possible. ')}}</li>
+  <li>{{=T('We deliver medicines in Mumbai (including Thane and Navi Mumbai), Delhi, Noida, Gurgaon, Kolkata, Pune, Bengaluru, Jaipur and Ahmedabad. Diagnostic tests are available in Mumbai (including Thane and Navi Mumbai), Delhi, Kolkata, Pune, Bangalore and Ahmedabad.')}}</li>
+ <!-- <li>{{=XML(T('Which called the function %s located in the file %s',
+    (A(request.function+'()',_href='#'),
+    A('web2py/applications/%(application)s/controllers/%(controller)s.py' % request,
+    _href=URL('admin','default','peek', args=(request.application,'controllers',request.controller+'.py'))))))}}</li>
+  <li>{{=XML(T('The output of the file is a dictionary that was rendered by the view %s',
+    A('web2py/applications/%(application)s/views/%(controller)s/index.html' % request,
+    _href=URL('admin','default','peek',args=(request.application,'views',request.controller,'index.html')))))}}</li>
+  <li>{{=T('You can modify this application and adapt it to your needs')}}</li>-->
+</ol>
+<center style="padding:50px">
+ <!-- <a class="btn btn-primary" href="{{=URL('admin','default','index')}}">
+    <i class="glyphicon glyphicon-cog"></i>
+    {{=T("admin")}}
+  </a>-->
+  <a class="btn btn-secondary" href="{{=URL('default','doctor')}}">{{=T("Doctor")}}</a>
+  <a class="btn btn-secondary" href="{{=URL('default','patient')}}">{{=T('Patient')}}</a>
+  <a class="btn btn-secondary" href="{{=URL('default','pharmacist')}}">{{=T('Pharmasist')}}</a>
+   <a class="btn btn-secondary" href="https://pharmeasy.in/">PharmEasy</a>
+  <!--<a class="btn btn-secondary" href="{{=URL('default','grid/auth_user')}}">{{=T('Grid Example')}}</a>
+  <a class="btn btn-secondary" href="{{=URL('default','wiki')}}">{{=T('Wiki Example')}}</a>-->
+</center>
+{{elif 'content' in globals():}}
+{{=content}}
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}
